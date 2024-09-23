@@ -1,38 +1,31 @@
-name: Sync Graphics Folder
+name: Generate Graphics
 
+# Only runs when manually triggered
 on:
-  workflow_dispatch:  # This allows you to manually trigger the workflow
-  schedule:
-    - cron: '0 0 * * *' # Runs daily at midnight
+  workflow_dispatch:  # Allows the workflow to be triggered manually
 
 jobs:
-  sync-graphics:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout `sprites` repository
-      uses: actions/checkout@v3
-      with:
-        repository: ViSurya/sprites
-        # token: ${{ secrets.GITHUB_TOKEN }}
+      # Checkout the repository (including your script)
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    - name: Clone PIFDexFiles repository
-      run: git clone --depth 1 --filter=blob:none --sparse https://github.com/ViSurya/PIFDexFiles.git pifdexfiles
+      # Make the script executable (chmod +x)
+      - name: Make script executable
+        run: chmod +x ./generate_graphics.sh
 
-    - name: Fetch only the graphics folder
-      run: |
-        cd pifdexfiles
-        git sparse-checkout init --cone
-        git sparse-checkout set graphics
+      # Run the script
+      - name: Run generate_graphics.sh
+        run: ./generate_graphics.sh
 
-    - name: Copy graphics folder to sprites repo
-      run: |
-        cp -r pifdexfiles/graphics ./graphics
-
-    - name: Commit and push changes to sprites
-      run: |
-        git config --global user.name "Vishal Kaleria"
-        git config --global user.email "w3vish@gmail.com"
-        git add graphics
-        git commit -m "Sync graphics folder"
-        git push origin main
+      # Commit and push the changes (graphics folder) back to the repo
+      - name: Commit and Push changes
+        run: |
+          git config --global user.name "Vishal Kaleria"
+          git config --global user.email "w3vish@gamil.com"
+          git add .
+          git commit -m "Add/Update graphics folder"
+          git push origin main
