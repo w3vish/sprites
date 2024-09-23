@@ -4,8 +4,8 @@
 GRAPHICS_DIR="./graphics"
 TEMP_DIR="./temp_graphics"
 GAME_DIR="./game"
-AUTOGEN_REPO="https://oauth2:glpat-glpat-dBVEvdZXTo-kCwR64VMV@gitlab.com/pokemoninfinitefusion/autogen-fusion-sprites.git"
-CUSTOM_REPO="https://oauth2:glpat-glpat-dBVEvdZXTo-kCwR64VMV@gitlab.com/pokemoninfinitefusion/customsprites.git"
+AUTOGEN_REPO="https://gitlab.com/pokemoninfinitefusion/autogen-fusion-sprites.git"
+CUSTOM_REPO="https://gitlab.com/pokemoninfinitefusion/customsprites.git"
 GAME_REPO="https://github.com/infinitefusion/infinitefusion-e18.git"
 
 # Delete the graphics and temp directories before starting to ensure clean slate
