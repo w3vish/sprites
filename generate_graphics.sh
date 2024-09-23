@@ -90,7 +90,7 @@ move_files "$TEMP_DIR/autogen" "$AUTOGEN_DIR"
 
 # Copy all graphics from the game repo to the game directory, preserving folder structure
 echo "Copying game graphics and preserving folder structure..."
-copy_graphics "$TEMP_DIR/infinitefusion-e18/Graphics" "./graphics/game"
+copy_graphics "$TEMP_DIR/infinitefusion-e18/Graphics" "./game"
 
 # Clean up the temporary directory
 echo "Cleaning up temporary files..."
