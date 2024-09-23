@@ -27,4 +27,4 @@ jobs:
           git config --global user.email "actions@github.com"
           git add .
           git commit -m "Add/Update graphics folder"
-          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/ViSurya/sprites.git HEAD:main
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/w3wish/sprites.git HEAD:main
