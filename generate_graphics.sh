@@ -34,10 +34,10 @@ mkdir -p "$TEMP_DIR"
 
 # Clone the repositories into the temporary directory
 echo "Cloning autogen-fusion-sprites repository into temp directory..."
-git clone "https://oauth2:${GITLAB_TOKEN}@gitlab.com/pokemoninfinitefusion/autogen-fusion-sprites.git" "$TEMP_DIR/autogen"
+git clone "https://gitlab.com/pokemoninfinitefusion/autogen-fusion-sprites.git" "$TEMP_DIR/autogen"
 
 echo "Cloning customsprites repository into temp directory..."
-git clone "https://oauth2:${GITLAB_TOKEN}@gitlab.com/pokemoninfinitefusion/customsprites.git" "$TEMP_DIR/custom"
+git clone "https://gitlab.com/pokemoninfinitefusion/customsprites.git" "$TEMP_DIR/custom"
 
 # Clone the game repository
 echo "Cloning infinitefusion-e18 repository..."
