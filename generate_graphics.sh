@@ -4,8 +4,8 @@
 GRAPHICS_DIR="./graphics"
 TEMP_DIR="./temp_graphics"
 GAME_DIR="./game"
-AUTOGEN_REPO="https://gitlab.com/pokemoninfinitefusion/autogen-fusion-sprites.git"
-CUSTOM_REPO="https://gitlab.com/pokemoninfinitefusion/customsprites.git"
+AUTOGEN_REPO="https://oauth2:glpat-glpat-dBVEvdZXTo-kCwR64VMV@gitlab.com/pokemoninfinitefusion/autogen-fusion-sprites.git"
+CUSTOM_REPO="https://oauth2:glpat-glpat-dBVEvdZXTo-kCwR64VMV@gitlab.com/pokemoninfinitefusion/customsprites.git"
 GAME_REPO="https://github.com/infinitefusion/infinitefusion-e18.git"
 
 # Delete the graphics and temp directories before starting to ensure clean slate
@@ -39,9 +39,6 @@ git clone "$CUSTOM_REPO" "$TEMP_DIR/custom"
 # Clone the game repository
 echo "Cloning infinitefusion-e18 repository..."
 git clone "$GAME_REPO" "$TEMP_DIR/infinitefusion-e18"
-
-
-
 
 # Remove the .git directories to avoid any conflicts
 echo "Removing .git directories from cloned repositories..."
@@ -90,9 +87,6 @@ copy_graphics "$TEMP_DIR/custom/Other/Triples/" "$TRIPLE_DIR"
 # Move all autogen sprites (flattening the structure)
 echo "Moving and flattening autogen sprites..."
 move_files "$TEMP_DIR/autogen" "$AUTOGEN_DIR"
-
-
-
 
 # Copy all graphics from the game repo to the game directory, preserving folder structure
 echo "Copying game graphics and preserving folder structure..."
