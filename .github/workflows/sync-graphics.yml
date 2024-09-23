@@ -1,6 +1,5 @@
 name: Generate Graphics
 
-# Only runs when manually triggered
 on:
   workflow_dispatch:  # Allows the workflow to be triggered manually
 
@@ -13,7 +12,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Make the script executable (chmod +x)
+      # Make the script executable
       - name: Make script executable
         run: chmod +x ./generate_graphics.sh
 
@@ -21,11 +20,11 @@ jobs:
       - name: Run generate_graphics.sh
         run: ./generate_graphics.sh
 
-      # Commit and push the changes (graphics folder) back to the repo
+      # Commit and Push changes
       - name: Commit and Push changes
         run: |
-          git config --global user.name "Vishal Kaleria"
-          git config --global user.email "w3vish@gamil.com"
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "actions@github.com"
           git add .
           git commit -m "Add/Update graphics folder"
-          git push origin main
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/ViSurya/sprites.git HEAD:main
