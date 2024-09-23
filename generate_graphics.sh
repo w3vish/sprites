@@ -8,9 +8,6 @@ AUTOGEN_REPO="https://gitlab.com/pokemoninfinitefusion/autogen-fusion-sprites.gi
 CUSTOM_REPO="https://gitlab.com/pokemoninfinitefusion/customsprites.git"
 GAME_REPO="https://github.com/infinitefusion/infinitefusion-e18.git"
 
-# Authentication for GitLab (if necessary)
-GITLAB_TOKEN="your_gitlab_token_here"  # Replace with your actual GitLab token
-
 # Delete the graphics and temp directories before starting to ensure clean slate
 echo "Deleting $GRAPHICS_DIR and $TEMP_DIR..."
 rm -rf "$GRAPHICS_DIR"
@@ -20,11 +17,11 @@ rm -rf "$TEMP_DIR"
 mkdir -p "$GRAPHICS_DIR"
 
 # Define final folder structure
-BASE_DIR="$GRAPHICS_DIR/base"
-FUSION_DIR="$GRAPHICS_DIR/fusions"
-TRIPLE_DIR="$GRAPHICS_DIR/triples"
-AUTOGEN_DIR="$GRAPHICS_DIR/autogen"
-CSV_FILE="$GRAPHICS_DIR/Sprite Credits.csv"
+BASE_DIR="./base"
+FUSION_DIR="./fusions"
+TRIPLE_DIR="./triples"
+AUTOGEN_DIR="./autogen"
+CSV_FILE="./Sprite Credits.csv"
 
 # Create necessary directories
 mkdir -p "$BASE_DIR" "$FUSION_DIR" "$TRIPLE_DIR" "$AUTOGEN_DIR"
@@ -34,10 +31,10 @@ mkdir -p "$TEMP_DIR"
 
 # Clone the repositories into the temporary directory
 echo "Cloning autogen-fusion-sprites repository into temp directory..."
-git clone "https://gitlab.com/pokemoninfinitefusion/autogen-fusion-sprites.git" "$TEMP_DIR/autogen"
+git clone "$AUTOGEN_REPO" "$TEMP_DIR/autogen"
 
 echo "Cloning customsprites repository into temp directory..."
-git clone "https://gitlab.com/pokemoninfinitefusion/customsprites.git" "$TEMP_DIR/custom"
+git clone "$CUSTOM_REPO" "$TEMP_DIR/custom"
 
 # Clone the game repository
 echo "Cloning infinitefusion-e18 repository..."
@@ -48,6 +45,7 @@ echo "Removing .git directories from cloned repositories..."
 rm -rf "$TEMP_DIR/autogen/.git"
 rm -rf "$TEMP_DIR/custom/.git"
 rm -rf "$TEMP_DIR/infinitefusion-e18/.git"
+rm -rf "game"
 
 # Copy CSV file
 echo "Copying CSV file..."
